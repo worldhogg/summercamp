@@ -1,30 +1,12 @@
 #include <iostream>
 using namespace std;
 #include <unordered_map>
-#include <vector>
-vector<int> twosum(vector<int>& vec, int target ){
-    unordered_map<int,int>mymap;
-    for(int i = 0; i < vec.size();i++){
-        int need = target-vec[i];
-        if (mymap.find(need) != mymap.end()){
-            return {mymap[need],i};
-        }
-        else{
-            mymap[vec[i]] = i;
-        }
-    }
-    return{};
-
-    }
+#include <string>
 int main(){
-    int n;
-    cin >> n;
-    vector <int> vec(n);
-    for (int i = 0; i < vec.size();i++){
-        cin >> vec[i];
+    unordered_map<string,int>mymap;
+    mymap["artem"] = 12;
+    cout << mymap["artem"];
+    if (mymap.find("artem") != mymap.end()){
+        cout << "нашел";
     }
-    int target;
-    cin >> target;
-    vector<int> ans = twosum(vec,target);
-    cout << ans[0] <<" "<< ans[1];
 }
