@@ -38,6 +38,39 @@ int main() {
     for (size_t i = 0; i < s5.size(); i++) {
         std::cout << "s5[" << i << "] = '" << s5[i] << "'\n";
     }
+    std::cout << "\n=== Тест 8: конструктор перемещения ===\n";
+{
+    Mystring s1("hello");
+    std::cout << "До move: s1 = \"" << s1 << "\", size = " << s1.size() << "\n";
     
+    Mystring s2 = std::move(s1);  // перемещаем
+    
+    std::cout << "После move:\n";
+    std::cout << "  s1 size = " << s1.size() << " (должно быть 0)\n";
+    std::cout << "  s2 = \"" << s2 << "\", size = " << s2.size() << " (должно быть hello, 5)\n";
+}
+
+    std::cout << "\n=== Тест 9: оператор перемещающего присваивания ===\n";
+{
+    Mystring s1("world");
+    Mystring s2("temporary");
+    
+    s1 = std::move(s2);
+    
+    std::cout << "После s1 = std::move(s2):\n";
+    std::cout << "  s1 = \"" << s1 << "\" (должно быть temporary)\n";
+    std::cout << "  s2 size = " << s2.size() << " (должно быть 0)\n";
+}
+
+    std::cout << "\n=== Тест 10: возврат из функции ===\n";
+{
+    auto makeString = []() {
+        Mystring result("from function");
+        return result;  // компилятор сделает move (или RVO)
+    };
+    
+    Mystring s = makeString();
+    std::cout << "s = \"" << s << "\" (должно быть from function)\n";
+}
     return 0;
 }

@@ -10,8 +10,10 @@ public:
     Mystring();//пустая строка
     Mystring(const char*str);// иницализация с строки
     Mystring(const Mystring&other);// конструктор копирования
+    Mystring(Mystring &&other)noexcept;//конструктор перемещения
 
     Mystring &operator=(const Mystring&other); // оператор присваивания
+    Mystring&operator=(Mystring&&other)noexcept;//оператор пермещеающего присваивания 
 
     ~Mystring();// деструктор
 
