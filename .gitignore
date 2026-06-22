@@ -1,2 +1,25 @@
+# Сборка
+build/
+*.o
+*.obj
+*.exe
+*.out
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
 .DS_Store
-*.dSYM
+*.dSYM/
+
+# Compiler artifacts
+*.gch
+*.pch
+
+# Бинарники
+main
+fuck
+EOF

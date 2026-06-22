@@ -1,3 +1,0 @@
-/Users/artemsidicev/Desktop/summercamp/my_string/build/CMakeFiles/my_string.dir
-/Users/artemsidicev/Desktop/summercamp/my_string/build/CMakeFiles/edit_cache.dir
-/Users/artemsidicev/Desktop/summercamp/my_string/build/CMakeFiles/rebuild_cache.dir
