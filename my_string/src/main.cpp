@@ -72,5 +72,46 @@ int main() {
     Mystring s = makeString();
     std::cout << "s = \"" << s << "\" (должно быть from function)\n";
 }
+    std::cout << "\n=== Тест 11: empty() и clear() ===\n";
+{
+    Mystring s("hello");
+    std::cout << "До clear: empty=" << s.empty() << ", size=" << s.size() << "\n";
+    s.clear();
+    std::cout << "После clear: empty=" << s.empty() << ", size=" << s.size() << "\n";
+    
+    Mystring empty_str;
+    std::cout << "Пустая строка: empty=" << empty_str.empty() << "\n";
+}
+
+    std::cout << "\n=== Тест 12: операторы сравнения ===\n";
+{
+    Mystring a("hello");
+    Mystring b("hello");
+    Mystring c("world");
+    Mystring empty1, empty2;
+    
+    std::cout << "(a == b): " << (a == b) << " (ожидается 1)\n";
+    std::cout << "(a == c): " << (a == c) << " (ожидается 0)\n";
+    std::cout << "(a != c): " << (a != c) << " (ожидается 1)\n";
+    std::cout << "(empty1 == empty2): " << (empty1 == empty2) << " (ожидается 1)\n";
+}
+
+    std::cout << "\n=== Тест 13: конкатенация ===\n";
+{
+    Mystring a("Hello, ");
+    Mystring b("World!");
+    Mystring c = a + b;
+    std::cout << "a + b = \"" << c << "\" (ожидается Hello, World!)\n";
+    std::cout << "size: " << c.size() << " (ожидается 13)\n";
+    
+    // Цепочка
+    Mystring d = Mystring("AAA") + Mystring("BBB") + Mystring("CCC");
+    std::cout << "AAA + BBB + CCC = \"" << d << "\"\n";
+    
+    // Конкатенация с пустой
+    Mystring empty;
+    Mystring e = a + empty;
+    std::cout << "a + empty = \"" << e << "\" (ожидается Hello, )\n";
+}
     return 0;
 }

@@ -75,3 +75,45 @@ Mystring& Mystring::operator=(Mystring&&other)noexcept{
     other.size_ = 0;
     return *this;
 }
+bool Mystring:: empty() const{
+    if (size_ == 0){
+        return true;
+    }
+    return false;
+}
+void Mystring::clear(){
+    delete []data_;
+    data_ = nullptr;
+    size_ = 0;
+}
+bool Mystring::operator==(const Mystring&other)const{
+    if (size_ != other.size_){
+        return false;
+    }
+    if (data_ == nullptr && other.data_ == nullptr){
+        return true;
+    }
+    if (data_ == nullptr || other.data_ == nullptr){
+        return false;
+    }
+    return std::strcmp(data_,other.data_) == 0;
+}
+bool Mystring::operator!=(const Mystring&other)const{
+    return !(*this == other);
+}
+Mystring Mystring::operator+(const Mystring&other)const{
+    Mystring result;
+    result.size_ = size_ + other.size_;
+    if (result.size_ == 0){
+        return result;
+    }
+    result.data_ = new char[result.size_ + 1];
+    result.data_[0] = '/0';
+    if (data_ != nullptr){
+        std::strcpy(result.data_,data_);
+    }
+    if (other.data_ != nullptr){
+        std::strcat(result.data_,other.data_);
+    }
+    return result;
+}

@@ -20,8 +20,12 @@ public:
     size_t size()const;//возврат размера
     const char* c_str() const;//указатель ну внутренний массив
     //доступ к символам
+    bool empty() const;
+    void clear();
     char& operator[](size_t index);          // изменение (s[0] = 'A')
     const char& operator[](size_t index) const;  // чтение (только const)
     friend std::ostream&operator<<(std::ostream&out,Mystring&s);
-
+    bool operator==(const Mystring&other)const;
+    bool operator!=(const Mystring &other)const;
+    Mystring operator+(const Mystring&other)const;
 };
