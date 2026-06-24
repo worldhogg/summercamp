@@ -4,7 +4,7 @@
 #include <iostream>
 class Hero : public Character{
 public:
-    Hero(std::string name,int damage, int health);
+    Hero(std::string name,int health, int damage);
     void attack(Character&target)override;
     void describe() const override;
 };
