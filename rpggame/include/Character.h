@@ -10,4 +10,7 @@ public:
     virtual void describe() const = 0;
     virtual void takedamage(int key);
     virtual ~Character();
+    bool isalive() const;
+    std::string getname() const;
+
 };
