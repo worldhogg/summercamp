@@ -3,6 +3,7 @@
 #include "Dragon.h"
 #include <vector>
 #include <iostream>
+#include <memory>
 void battle(Character*a,Character*b){
     int round = 1;
     while (a->isalive() && b->isalive()){
@@ -36,19 +37,12 @@ void battle(Character*a,Character*b){
 }
 }
 int main() {
-    std::vector<Character*> participants;
-    participants.push_back(new Hero("Артём", 100, 20));
-    participants.push_back(new Goblin());
-    participants.push_back(new Dragon());
-    participants.push_back(new Hero("Кашед",100,20));
-    battle(participants[0],participants[1]);
-    battle(participants[3],participants[2]);
+    std::vector<std::unique_ptr<Character>>participants;
+    participants.push_back(std::make_unique <Hero>("Артём", 100, 20));
+    participants.push_back(std::make_unique <Goblin>());
+    participants.push_back(std::make_unique <Dragon>());
+    participants.push_back(std::make_unique <Hero>("Кашед",100,20));
+    battle(participants[0].get(),participants[1].get());
+    battle(participants[3].get(),participants[2].get());
 
-
-
-
-    // 3. ОБЯЗАТЕЛЬНО почистить: пройти циклом и delete каждого
-    for (Character* c : participants) {
-        delete c;   // виртуальный деструктор → правильная цепочка для каждого типа
-    }
 }
