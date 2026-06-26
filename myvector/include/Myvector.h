@@ -22,6 +22,29 @@ public:
     int getcapacity()const{
         return this->capacity;
     }
+    void push_back(T value){
+        if (this->size < this->capacity){
+            data[size] = value;
+            size++;
+        }
+        else {
+            capacity *= 2;
+            T*newdata = new T[capacity];
+            for (int i = 0; i < size; i++){
+                newdata[i] = data[i];
+            }
+            newdata[size] = value;
+            size++;
+            delete[]data;
+            data = newdata;
+        }
+    }
+    const T&operator[](int k)const{
+        return data[k];
+        }
+    T&operator[](int k){
+        return data[k];
+    }
 
 };
     // void push_back(T value){
