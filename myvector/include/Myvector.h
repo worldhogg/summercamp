@@ -1,5 +1,6 @@
 #include <iostream>
 #pragma once
+#include <utility>
 template <class T>
 class Myvector{
 private:
@@ -45,21 +46,33 @@ public:
     T&operator[](int k){
         return data[k];
     }
+    void swap(Myvector& other) {
+        std::swap(data, other.data);
+        std::swap(size, other.size);
+        std::swap(capacity, other.capacity);
+}
+    Myvector(const Myvector&other){
+        T *newdata = new T[other.capacity];
+        this->size = other.size;
+        this->capacity = other.capacity;
+        for (int i = 0; i < other.size;i++){
+            newdata[i] = other.data[i];
+        }
+        this->data = newdata;
+    }
+    Myvector& operator=(Myvector other) {   
+        swap(other);                        
+        return *this;                        
+}
+    Myvector(Myvector&&other)noexcept{
+        this->data = other.data;
+        this->size = other.size;
+        this->capacity = other.capacity;
+        other.data = nullptr;
+        other.size = 0;
+        other.capacity = 0;
+    }
+
 
 };
-    // void push_back(T value){
-    //     if (this->size <= this->capacity)
-    //     data[size + 1] = value;
-    //     size++;
-    // }
-    //     else{
-    //         capacity *= 2;
-    //         newdata = new T(capacity);
-    //         for (int i = 0; i < size;i++){
-    //             newdata[i] = data[i];
-    //         }
-    //         newdata[size + 1] = value;
-    //         delete[]data;
-    //         newdata = data;
-    //         size++;
-    //     }
+
