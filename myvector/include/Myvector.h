@@ -72,7 +72,27 @@ public:
         other.size = 0;
         other.capacity = 0;
     }
+    bool empty() const{
+        return size == 0;
+    }
+    void pop_back(){
+        if (size > 0){
+            size--;
+        }
+    }
 
-
+    void clear(){
+        size = 0;
+    }
+    T&front(){
+        return data[0];    }
+    const T&front()const{
+        return data[0];
+    }
+    T&back(){
+        return data[size - 1];    }
+    const T&back()const{
+        return data[size - 1];
+    }
 };
 
