@@ -9,10 +9,10 @@ int Match::getGoals1()const{
 int Match::getGoals2()const{
     return goalsTeam2_;
 }
-std::string Match::getName1()const{
+Team Match::getName1()const{
     return team1_;
 }
-std::string Match::getName2()const{
+Team Match::getName2()const{
     return team2_;
 }
 std::vector<PlayerStats> Match::getStats()const{

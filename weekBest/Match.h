@@ -14,8 +14,8 @@ public:
     Match(Team team1,Team team2, int goalsTeam1,int goalsTeam2);
     int getGoals1() const;
     int getGoals2() const;
-    std::string getName1() const;
-    std::string getName2() const;
+    Team getName1() const;
+    Team getName2() const;
     std::vector<PlayerStats>getStats()const;
     void addPlayerStats(PlayerStats p);
 };
