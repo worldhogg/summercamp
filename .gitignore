@@ -19,7 +19,9 @@ build/
 *.gch
 *.pch
 
-# Бинарники
-main
-fuck
-EOF
+
+
+# Скомпилированные бинарники
+vec
+rpg
+league

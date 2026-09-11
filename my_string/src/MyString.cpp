@@ -108,7 +108,7 @@ Mystring Mystring::operator+(const Mystring&other)const{
         return result;
     }
     result.data_ = new char[result.size_ + 1];
-    result.data_[0] = '/0';
+    result.data_[0] = '\0';
     if (data_ != nullptr){
         std::strcpy(result.data_,data_);
     }
